@@ -19,7 +19,7 @@ const main = (n)=>{
     return sumArray
 }
 
-for(let i = 1; i <= 1000; i++){
+for(let i = 1; i <= 1000; i++){ 
     main(i)
 }
 
@@ -29,4 +29,3 @@ var sumArray = primeNumbers.reduce((accumulator, value)=>{
 }, 0)
 
 console.log(sumArray)
-

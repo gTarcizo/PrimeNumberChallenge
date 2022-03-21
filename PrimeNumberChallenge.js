@@ -4,28 +4,39 @@
 3. The `main` function should return the sum of all prime numbers. */
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
+const primeNumbers = new Array(); //The prime numbers between 1 and 1000 will be here!
 
-const primeNumbers = new Array
 
-const main = (n)=>{
-    if(n <= 1) return
-    if(n % 2 === 0 || n % 3=== 0) return
-    if(n <= 3) return primeNumbers.push(n)
+// Function that sums all array index
+const sumAll = () => {
+    var sumArray = primeNumbers.reduce((accumulator, value) => {
+        accumulator += value;
+        return accumulator;
+      }, 0);
+      console.log(sumArray)
+  }
 
-    for(let i = 5; i * i <= n; i+=6){
-        if(n % i === 0 || n % (i+2) === 0) return
+
+// This function receive the "limit" of 1000
+// Then calculate if it's a prime number
+// if it is, the prime number will be added on "primeNumbers"
+
+const main = (limit) => {
+  for (let number = 2; number <= limit; number++) {
+    let primo = true;
+
+    for (let divisor = 2; divisor < number; divisor++) {
+      if (number % divisor === 0) {
+        primo = false;
+        break;
+      }
     }
-    primeNumbers.push(n)
-    return sumArray
-}
+    if (primo) {
+      primeNumbers.push(number);
+    }
+  }
+  return sumAll() //here it's returning the array sum value
+};
 
-for(let i = 1; i <= 1000; i++){ 
-    main(i)
-}
+main(1000); //it's sending the limit
 
-var sumArray = primeNumbers.reduce((accumulator, value)=>{
-    accumulator += value
-    return accumulator
-}, 0)
-
-console.log(sumArray)

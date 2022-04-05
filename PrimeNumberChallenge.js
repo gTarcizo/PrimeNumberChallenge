@@ -37,6 +37,5 @@ const main = (limit) => {
   }
   return sumAll() //here it's returning the array sum value
 };
-
 main(1000); //it's sending the limit
 
